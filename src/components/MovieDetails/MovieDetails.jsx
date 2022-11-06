@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { fetchMovieID } from '../../api'
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import { Container, Wrapper, FlexItem, AddInfo, Img, ImgBox } from './MovieDetails.styled'
+import { BackLink } from 'components/BackLink';
 
 
 export default function MovieDetails() {
@@ -27,6 +28,9 @@ export default function MovieDetails() {
 		fetchMovie()
 	}, [movieID])
 
+	const location = useLocation();
+	const backLinkHref = location.state?.from ?? "/movies";
+
 	const { poster_path, title, release_date, vote_average, overview, genres } = aboutMovie
 
 	const path = 'https://image.tmdb.org/t/p/w500'
@@ -37,7 +41,7 @@ export default function MovieDetails() {
 			{isLoading ?
 				<Loader /> :
 				<>
-					<button>Go back</button>
+					<BackLink to={backLinkHref}>Go back</BackLink>
 					<Wrapper>
 						<ImgBox>
 							{poster_path && <Img

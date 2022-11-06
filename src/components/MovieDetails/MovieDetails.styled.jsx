@@ -40,9 +40,10 @@ margin-top: 20px;
 `;
 
 export const Img = styled.img`
+display: block;
 max-width: 100%;
-max-hight: 100%;
-overflow:auto;
+hight: auto;
+overflow:hidden;
  object-fit: cover;
 `;
  // если хотите, чтобы чтобы изображение масштабировалась пропорционально

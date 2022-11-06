@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Input, Button } from "./Movies.styled";
 import { fetchSearchMovies } from '../../api'
 
@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Movies() {
 	const [query, setQuery] = useState('');
 	const [foundMovies, setFoundMovies] = useState([])
-
+	const location = useLocation();
 	const handleSubmit = event => {
 		event.preventDefault();
 		const form = event.currentTarget;
@@ -64,7 +64,7 @@ export default function Movies() {
 			</form>
 			<div>
 				{foundMovies.map(({ id, title }) => (<ul key={id}>
-					<Link to={`/movies/${id}`}>
+					<Link to={`/movies/${id}`} state={{ from: location }}>
 						<li>{title}</li>
 					</Link>
 				</ul>

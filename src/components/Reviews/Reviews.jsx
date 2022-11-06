@@ -13,8 +13,7 @@ export const Reviews = () => {
 		async function fetchMovie() {
 			try {
 				const reviews = await fetchMovieIDReviews(url);
-
-				if (reviews.results) {
+				if (reviews.results.length) {
 					const contentRewiews = reviews.results.map(({ author, content }) => {
 						return { author, content };
 					});
