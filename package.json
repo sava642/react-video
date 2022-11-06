@@ -2,7 +2,7 @@
   "name": "cra",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sava642.github.io/react-video/",
+  "homepage": "http://sava642.github.io/react-video/",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
