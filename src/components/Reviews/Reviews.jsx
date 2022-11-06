@@ -19,6 +19,8 @@ export const Reviews = () => {
 						return { author, content };
 					});
 					setContentRewiews(contentRewiews)
+				} else {
+					setContentRewiews([])
 				}
 				return;
 			} catch (error) {
