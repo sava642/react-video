@@ -32,7 +32,7 @@ export const Reviews = () => {
 
 	return (
 		<section>
-			{contentRewiews ?
+			{contentRewiews.length ?
 				contentRewiews.map((el, index) => (
 					<ul key={index}>
 						<li><h3>Author: {el.author}</h3></li>
