@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy } from 'react';
 import { fetchTrendingToday } from 'api';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from "react-router-dom";
-import { Home } from "../pages/Home";
-import Movies from '../pages/Movies';
+//import Home from "../pages/Home";
+//import Movies from '../pages/Movies';
 import Movie from '../pages/Movie';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
-import { SharedLayout } from './SharedLayout/SharedLayout';
+import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
+import SharedLayout from './SharedLayout/SharedLayout';
 
+const Home = lazy(() => import("../pages/Home"));
+const Movies = lazy(() => import("../pages/Movies"));
 
 export default function App() {
   const [trends, setTrends] = useState([]);

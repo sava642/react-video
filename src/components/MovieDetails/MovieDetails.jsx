@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { fetchMovieID } from '../../api'
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
-import { Container, Wrapper, FlexItem, AddInfo, Img, ImgBox } from './MovieDetails.styled'
+import { Container, Wrapper, FlexItem, AddInfo, ImgBox } from './MovieDetails.styled'
 import { BackLink } from 'components/BackLink';
 
+import styled from "styled-components";
+
+const Img = styled.img`
+background-image: liner-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.4)), var(url);
+background-repeat: no-repeat;
+background-size:100%;
+`;
 
 export default function MovieDetails() {
 	const [aboutMovie, setAboutMovie] = useState({})
@@ -50,18 +57,26 @@ export default function MovieDetails() {
 							/>}
 						</ImgBox>
 						<FlexItem>
-							{release_date && <h2>{title} ({release_date.slice(0, 4)})</h2>}
-							<p>User Score {Math.floor(vote_average * 10)}%</p>
-							<h3>Overview</h3>
-							<p>{overview}</p>
-							<h4>Genres</h4>
-							{genres && <div>{genres.map(el => (
-								<span key={el.id}> {el.name}</span>
-							))}</div>}
+							<div>
+								{release_date && <h2>{title} ({release_date.slice(0, 4)})</h2>}
+								<br />
+								<p>User Score {Math.floor(vote_average * 10)}%</p>
+							</div>
+							<div>
+								<h3>Overview</h3>
+								<br />
+								<p>{overview}</p>
+							</div>
+							<div>
+								<h4>Genres</h4>
+								<br />
+								{genres && <div>{genres.map(el => (
+									<span key={el.id}> {el.name}</span>
+								))}</div>}
+							</div>
+
 						</FlexItem>
 					</Wrapper>
-
-
 					<AddInfo>
 						<p>Additional information</p>
 						<ul>
@@ -73,12 +88,16 @@ export default function MovieDetails() {
 							</li>
 						</ul>
 					</AddInfo>
-
-					<Outlet context={{ movieID }} />
+					<Suspense>
+						<Outlet context={{ movieID }} />
+					</Suspense>
 				</>
-
 			}
-
 		</Container >
 	)
 }
+
+// max-width: 100%;
+// hight: auto;
+// overflow:hidden;
+//  object-fit: cover;

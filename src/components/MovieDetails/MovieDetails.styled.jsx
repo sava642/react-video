@@ -13,7 +13,6 @@ display: flex;
 -webkit-flex-flow: row nowrap;
 -moz-flex-flow: row nowrap;
 flex-flow: row nowrap;
-
 `;
 
 export const FlexItem = styled.div`
@@ -46,7 +45,7 @@ hight: auto;
 overflow:hidden;
  object-fit: cover;
 `;
- // если хотите, чтобы чтобы изображение масштабировалась пропорционально
+// если хотите, чтобы чтобы изображение масштабировалась пропорционально
 
 
 

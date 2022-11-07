@@ -1,9 +1,10 @@
 import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { fetchMovieIDReviews } from 'api';
+import { Wrapper } from './Reviews.styled'
 
 
-export const Reviews = () => {
+const Reviews = () => {
 
 	const [contentRewiews, setContentRewiews] = useState([])
 	const { movieID } = useOutletContext();
@@ -30,7 +31,7 @@ export const Reviews = () => {
 	}, [movieID])
 
 	return (
-		<section>
+		<Wrapper>
 			{contentRewiews.length ?
 				contentRewiews.map((el, index) => (
 					<ul key={index}>
@@ -43,6 +44,7 @@ export const Reviews = () => {
 				)) :
 				(<p>Not reviews</p>)
 			}
-		</section>
+		</Wrapper>
 	);
 };
+export default Reviews;

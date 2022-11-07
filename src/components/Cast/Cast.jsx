@@ -1,8 +1,9 @@
 import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { fetchMovieIDCredits } from 'api';
+import { Wrapper } from './Cast.styled'
 
-export const Cast = () => {
+const Cast = () => {
 	const [cast, setCast] = useState([])
 
 	const { movieID } = useOutletContext();
@@ -27,12 +28,16 @@ export const Cast = () => {
 		<section>
 			<div>
 				{cast.map(({ cast_id, name, character, profile_path }) => (
-					<div key={cast_id}>
+					<Wrapper key={cast_id}>
 						{profile_path && <img src={`${path}${profile_path}`} alt="" />}
+						<br />
 						<p>{name}</p>
+						<br />
 						<p>Character: {character}</p>
-					</div>))}
+						<br />
+					</Wrapper>))}
 			</div>
 		</section>
 	);
 };
+export default Cast;

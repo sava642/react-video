@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-export const Home = ({ trends }) => {
+
+export default function Home({ trends }) {
 	const location = useLocation();
 	return (
 		<div>
