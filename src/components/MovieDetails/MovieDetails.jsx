@@ -88,7 +88,7 @@ export default function MovieDetails() {
 							</li>
 						</ul>
 					</AddInfo>
-					<Suspense>
+					<Suspense fallback={null}>
 						<Outlet context={{ movieID }} />
 					</Suspense>
 				</>
