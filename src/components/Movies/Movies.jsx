@@ -8,8 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Movies() {
 	const [query, setQuery] = useState('');
 	const [foundMovies, setFoundMovies] = useState([]);
-	// const [searchParams, setSearchParams] = useSearchParams('');
-	// const valueParam = searchParams.get('filter') ?? '';
+	const [searchParams, setSearchParams] = useSearchParams();
+	const valueParam = searchParams.get('query') ?? '';
 	const location = useLocation();
 
 
@@ -19,21 +19,24 @@ export default function Movies() {
 		const value = form.elements.searchValue.value;
 
 		if (value === "") {
-			setQuery(value)
 			toast('Впишите значение поиска')
 			return;
 		}
-		setQuery(value);
+		setSearchParams(value !== '' ? { query: value } : {});
 		form.reset();
 	}
 	useEffect(() => {
-		if (query === "") {
+		if (searchParams === "") {
 			return;
 		}
 		async function fetchSearch() {
 			const url = 'search/movie'
 			try {
-				const data = await fetchSearchMovies(url, query);
+				const data = await fetchSearchMovies(url, valueParam);
+				if (data.results.length === 0
+				) {
+					toast('По вашему запросу ничего не найдено')
+				};
 				const foundMovies = data.results.map(({ id, title
 				}) => {
 					return {
@@ -49,11 +52,7 @@ export default function Movies() {
 			}
 		}
 		fetchSearch()
-	}, [query])
-
-	// const handleValue = value =>{
-	// 	setSearchParams(value !== '' ? { search: value } : {});
-	// }
+	}, [valueParam, searchParams])
 
 	return (
 		<>
