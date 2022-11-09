@@ -22,6 +22,7 @@ export default function Movies() {
 			toast('Впишите значение поиска')
 			return;
 		}
+
 		setSearchParams(value !== '' ? { query: value } : {});
 		form.reset();
 	}
