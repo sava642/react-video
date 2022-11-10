@@ -3,16 +3,16 @@ import { useParams } from 'react-router';
 import { fetchMovieID } from '../../api'
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
-import { Container, Wrapper, FlexItem, AddInfo, ImgBox } from './MovieDetails.styled'
+import { Container, Wrapper, FlexItem, AddInfo, ImgBox, Img } from './MovieDetails.styled'
 import { BackLink } from 'components/BackLink';
 
-import styled from "styled-components";
+//import styled from "styled-components";
 
-const Img = styled.img`
-background-image: liner-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.4)), var(url);
-background-repeat: no-repeat;
-background-size:100%;
-`;
+// const Img = styled.img`
+// background-image: liner-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.4)), var(url);
+// background-repeat: no-repeat;
+// background-size:100%;
+// `;
 
 export default function MovieDetails() {
 	const [aboutMovie, setAboutMovie] = useState({})

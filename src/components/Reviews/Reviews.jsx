@@ -30,6 +30,10 @@ const Reviews = () => {
 		fetchMovie()
 	}, [movieID])
 
+	if (!contentRewiews) {
+		return;
+	}
+
 	return (
 		<Wrapper>
 			{contentRewiews.length ?

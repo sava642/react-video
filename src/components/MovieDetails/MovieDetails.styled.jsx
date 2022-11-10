@@ -24,11 +24,19 @@ justify-content: space-between;
 padding-left: 20px;
 `;
 export const ImgBox = styled.div`
-display: inline-flex;
-justify-content: center;
-align-items: center;
-min-height: 216px;
+flex: 0 0 30%;
+min-height: 150px;
 `;
+
+
+export const Img = styled.img`
+width: 100%;
+hight: 100%;
+ object-fit: cover;
+
+`;
+// если хотите, чтобы чтобы изображение масштабировалась пропорционально
+
 
 export const AddInfo = styled.div`
 margin-top: 20px;
@@ -37,17 +45,6 @@ margin-top: 20px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 `;
-
-export const Img = styled.img`
-display: block;
-max-width: 100%;
-hight: auto;
-overflow:hidden;
- object-fit: cover;
-`;
-// если хотите, чтобы чтобы изображение масштабировалась пропорционально
-
-
 
 
 
