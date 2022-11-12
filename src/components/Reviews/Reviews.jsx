@@ -1,11 +1,8 @@
 import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { fetchMovieIDReviews } from 'api';
-import { Wrapper } from './Reviews.styled'
-
 
 const Reviews = () => {
-
 	const [contentRewiews, setContentRewiews] = useState([])
 	const { movieID } = useOutletContext();
 
@@ -35,20 +32,18 @@ const Reviews = () => {
 	}
 
 	return (
-		<Wrapper>
+		<div className="container border-bottom border-dark ">
 			{contentRewiews.length ?
 				contentRewiews.map((el, index) => (
 					<ul key={index}>
-						<li><h3>Author: {el.author}</h3></li>
+						<li><h5 className="card-title">Author: {el.author}</h5></li>
 						<br />
-						<p>
-							{el.content}
-						</p>
+						<p>{el.content}</p>
 					</ul>
 				)) :
-				(<p>Not reviews</p>)
+				(<p className="mb-3">Not reviews</p>)
 			}
-		</Wrapper>
+		</div>
 	);
 };
 export default Reviews;

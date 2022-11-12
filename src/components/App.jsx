@@ -3,12 +3,11 @@ import { fetchTrendingToday } from 'api';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from "react-router-dom";
-//import Home from "../pages/Home";
-//import Movies from '../pages/Movies';
 import Movie from '../pages/Movie';
 import Cast from './Cast/Cast';
 import Reviews from './Reviews/Reviews';
 import SharedLayout from './SharedLayout/SharedLayout';
+import About from './About/About'
 
 const Home = lazy(() => import("../pages/Home"));
 const Movies = lazy(() => import("../pages/Movies"));
@@ -21,9 +20,9 @@ export default function App() {
       const url = 'trending/movie/day'
       try {
         const data = await fetchTrendingToday(url);
-        const trendsMovies = data.results.map(({ id, title
+        const trendsMovies = data.results.map(({ id, title, poster_path
         }) => {
-          return { id, title };
+          return { id, title, poster_path };
         });
         if (trendsMovies) {
           setTrends(trendsMovies);
@@ -42,6 +41,7 @@ export default function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home trends={trends} />} />
           <Route path="/movies" element={<Movies />} />
+          <Route path="/about" element={<About />} />
           <Route path="/movies/:movieID" element={<Movie />} >
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />

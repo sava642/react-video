@@ -18,6 +18,11 @@ html {
 	box-sizing: border-box;
 }
 
+#page-wrap {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
 *,
 *::before,
 *::after {
@@ -46,5 +51,19 @@ address {
 img {
 	display: block;
 	max-width: 100%;
-	height: auto;
+	height: 100%;
+}
+
+.wrapper-custom {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.content-custom {
+	min-height: calc(100vh - 56px - 56px);
+}
+
+.footer-custom {
+	flex: 0 0 auto;
 }

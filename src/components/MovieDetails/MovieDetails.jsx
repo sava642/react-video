@@ -3,19 +3,11 @@ import { useParams } from 'react-router';
 import { fetchMovieID } from '../../api'
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
-import { Container, Wrapper, FlexItem, AddInfo, ImgBox, Img } from './MovieDetails.styled'
 import { BackLink } from 'components/BackLink';
 
-//import styled from "styled-components";
-
-// const Img = styled.img`
-// background-image: liner-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.4)), var(url);
-// background-repeat: no-repeat;
-// background-size:100%;
-// `;
 
 export default function MovieDetails() {
-	const [aboutMovie, setAboutMovie] = useState({})
+	const [aboutMovie, setAboutMovie] = useState([])
 	const [isLoading, setIsLoading] = useState(false)
 
 
@@ -35,6 +27,8 @@ export default function MovieDetails() {
 		fetchMovie()
 	}, [movieID])
 
+
+
 	const location = useLocation();
 	const backLinkHref = location.state?.from ?? "/movies";
 
@@ -42,43 +36,42 @@ export default function MovieDetails() {
 
 	const path = 'https://image.tmdb.org/t/p/w500'
 	const url = `${path}${poster_path}`
-	return (
 
-		<Container>
+	if (!release_date) {
+		return;
+	}
+
+	return (
+		<div className="contant-custom" style={{ minHeight: "calc(100vh - 56px - 56px)" }}>
 			{isLoading ?
 				<Loader /> :
 				<>
 					<BackLink to={backLinkHref}>Go back</BackLink>
-					<Wrapper>
-						<ImgBox>
-							{poster_path && <Img
-								src={url}
-								alt=""
-							/>}
-						</ImgBox>
-						<FlexItem>
-							<div>
-								{release_date && <h2>{title} ({release_date.slice(0, 4)})</h2>}
-								<br />
-								<p>User Score {Math.floor(vote_average * 10)}%</p>
+					<div className="card mb-3" style={{ maxWidth: "100%" }}>
+						<div className="row g-0">
+							<div className="col-md-4">
+								{poster_path && <img src={url} className="img-fluid rounded-start" alt="" />}
 							</div>
-							<div>
-								<h3>Overview</h3>
-								<br />
-								<p>{overview}</p>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">{title} ({release_date.slice(0, 4)})</h5>
+									<p className="card-text">User Score {Math.floor(vote_average * 10)}%.</p>
+								</div>
+								<div className="card-body">
+									<h5 className="card-title">Overview</h5>
+									<p className="card-text">{overview}</p>
+								</div>
+								<div className="card-body">
+									<h5 className="card-title">Genres</h5>
+									{genres && <p className="card-text">{genres.map(el => (
+										<span key={el.id}> {el.name}</span>
+									))}</p>}
+								</div>
 							</div>
-							<div>
-								<h4>Genres</h4>
-								<br />
-								{genres && <div>{genres.map(el => (
-									<span key={el.id}> {el.name}</span>
-								))}</div>}
-							</div>
-
-						</FlexItem>
-					</Wrapper>
-					<AddInfo>
-						<p>Additional information</p>
+						</div>
+					</div>
+					<div className=' pt-3 mb-3 container border-top border-bottom border-dark'>
+						<h5 className="card-title">Additional information</h5>
 						<ul>
 							<li>
 								<Link to="cast">Cast</Link>
@@ -87,13 +80,13 @@ export default function MovieDetails() {
 								<Link to="reviews">Reviews</Link>
 							</li>
 						</ul>
-					</AddInfo>
+					</div>
 					<Suspense fallback={null}>
 						<Outlet context={{ movieID }} />
 					</Suspense>
 				</>
 			}
-		</Container >
+		</div >
 	)
 }
 
@@ -101,3 +94,4 @@ export default function MovieDetails() {
 // hight: auto;
 // overflow:hidden;
 //  object-fit: cover;
+
