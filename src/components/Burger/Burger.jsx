@@ -16,7 +16,6 @@ export const Burger = ({ visibility, handleClick }) => {
 				<NavLink onClick={handleClick} className="d-flex p-2 text-decoration-none text-light" aria-current="page" to="/movies"><span className="m-3"><FaYoutube size={24} /></span><li>Movies</li></NavLink>
 
 				<NavLink onClick={handleClick} className="d-flex p-2 text-decoration-none text-light" aria-current="page" to="/about"><span className="m-3"><FaProductHunt size={24} /></span><li>About</li></NavLink>
-
 			</ul>
 		</div>
 	)
