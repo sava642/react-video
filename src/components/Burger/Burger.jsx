@@ -7,7 +7,7 @@ export const Burger = ({ visibility, handleClick }) => {
 
 	return (
 		<div className={visibility ? "wrapper active" : "wrapper"}>
-			<button class="btn m-3 btn-light position-absolute top-0 end-0" onClick={handleClick} >
+			<button className="btn m-3 btn-light position-absolute top-0 end-0" onClick={handleClick} >
 				X
 			</button>
 			<ul className="flex-column m-0 pl-20 mt-5">

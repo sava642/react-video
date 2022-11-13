@@ -79,13 +79,13 @@ const SharedLayout = () => {
 						<div className="d-flex">
 							<ul className="navbar-nav me-auto mb-2 mb-lg-0 flex-row d-none d-lg-flex">
 								<li className="nav-item m-0">
-									<NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+									<NavLink className="nav-link " aria-current="page" to="/">Home</NavLink>
 								</li>
 								<li className="nav-item m-0">
 									<NavLink className="nav-link" to="/movies">Movies</NavLink>
 								</li>
 								<li className="nav-item m-0">
-									<NavLink className="nav-link active" aria-current="page" to="/about">About</NavLink>
+									<NavLink className="nav-link " aria-current="page" to="/about">About</NavLink>
 								</li>
 							</ul>
 						</div>
