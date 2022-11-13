@@ -7,7 +7,7 @@ import Movie from '../pages/Movie';
 import Cast from './Cast/Cast';
 import Reviews from './Reviews/Reviews';
 import SharedLayout from './SharedLayout/SharedLayout';
-import About from './About/About'
+import AboutUs from '../pages/AboutUs'
 
 const Home = lazy(() => import("../pages/Home"));
 const Movies = lazy(() => import("../pages/Movies"));
@@ -41,12 +41,12 @@ export default function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home trends={trends} />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/movies/:movieID" element={<Movie />} >
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<div>Not found</div>} />
+          <Route path="*" element={<div className="content-custom mt-3">Not found pages</div>} />
         </Route>
       </Routes>
     </>

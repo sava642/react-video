@@ -40,13 +40,6 @@ p {
 	margin-bottom: 0;
 }
 
-/* li {
-	list-style: none;
-} */
-
-address {
-	font-style: normal;
-}
 
 img {
 	display: block;
@@ -66,4 +59,14 @@ img {
 
 .footer-custom {
 	flex: 0 0 auto;
+}
+
+#navbarSupportedContent {
+	height: 56px;
+}
+
+#navbarSupportedContent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

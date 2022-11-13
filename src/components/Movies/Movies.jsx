@@ -8,7 +8,7 @@ export default function Movies() {
 	const location = useLocation();
 
 	return (
-		<div className="content-custom">
+		<div className="content-custom mb-3 mt-3">
 			{foundMovies.length === 0 && <h5 className="card-title mt-2" >Введите название фильма...</h5>}
 			<div className="card-group row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
 				{foundMovies.map(({ id, title, poster_path }) => (

@@ -9,9 +9,8 @@ import { BackLink } from 'components/BackLink';
 export default function MovieDetails() {
 	const [aboutMovie, setAboutMovie] = useState([])
 	const [isLoading, setIsLoading] = useState(false)
-
-
 	const { movieID } = useParams()
+
 	useEffect(() => {
 		const url = `movie/${movieID}`
 		async function fetchMovie() {
@@ -28,12 +27,9 @@ export default function MovieDetails() {
 	}, [movieID])
 
 
-
 	const location = useLocation();
 	const backLinkHref = location.state?.from ?? "/movies";
-
-	const { poster_path, title, release_date, vote_average, overview, genres } = aboutMovie
-
+	const { poster_path, title, release_date, vote_average, overview, genres } = aboutMovie;
 	const path = 'https://image.tmdb.org/t/p/w500'
 	const url = `${path}${poster_path}`
 
@@ -42,7 +38,7 @@ export default function MovieDetails() {
 	}
 
 	return (
-		<div className="contant-custom" style={{ minHeight: "calc(100vh - 56px - 56px)" }}>
+		<div className="contant-custom " style={{ minHeight: "calc(100vh - 56px - 56px)", marginBottom: "3px" }}>
 			{isLoading ?
 				<Loader /> :
 				<>
@@ -89,9 +85,4 @@ export default function MovieDetails() {
 		</div >
 	)
 }
-
-// max-width: 100%;
-// hight: auto;
-// overflow:hidden;
-//  object-fit: cover;
 

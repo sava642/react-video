@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export const BackLink = ({ to, children }) => {
+export const About = () => {
 	return (
 		<div className="card content-custom" style={{ width: "100%" }}>
 			<div className="card-body">
@@ -12,9 +12,8 @@ export const BackLink = ({ to, children }) => {
 				</p>
 				<NavLink className="card-link" aria-current="page" to="/">Home</NavLink>
 				<NavLink className="card-link" to="/movies">Movies</NavLink>
-
 			</div>
 		</div>
 	);
 };
-export default BackLink;
+export default About;

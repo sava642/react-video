@@ -64,23 +64,23 @@ const SharedLayout = () => {
 	}, [valueParam, searchParams])
 
 	return (
-		<div className="container wrapper-custom">
+		<div className="container wrapper-custom h-56">
 			<ToastContainer />
-			<Burger visibility={visibility} handleClick={handleClick} />
+
 			<nav className="navbar navbar-dark bg-dark navbar-expand-lg">
 				<div className="container-fluid">
 					<button onClick={handleClick} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span className="navbar-toggler-icon"></span>
 					</button>
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-							<li className="nav-item">
+					<div className="collapse navbar-collapse  " id="navbarSupportedContent">
+						<ul className="navbar-nav me-auto mb-2 mb-lg-0 flex-row d-none d-lg-flex">
+							<li className="nav-item m-0">
 								<NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
 							</li>
-							<li className="nav-item">
+							<li className="nav-item m-0">
 								<NavLink className="nav-link" to="/movies">Movies</NavLink>
 							</li>
-							<li className="nav-item">
+							<li className="nav-item m-0">
 								<NavLink className="nav-link active" aria-current="page" to="/about">About</NavLink>
 							</li>
 						</ul>
@@ -111,6 +111,7 @@ const SharedLayout = () => {
 					<a className="text-white" href="https://bootstrap.com/">Bootstrap.com</a>
 				</div>
 			</footer >
+			<Burger visibility={visibility} handleClick={handleClick} />
 		</div >
 	);
 };
