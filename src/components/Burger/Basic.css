@@ -1,0 +1,21 @@
+.wrapper {
+	position: fixed;
+	width: 55%;
+	height: 100vh;
+	background: #212529;
+	left: 0;
+	transform: translateX(-100%);
+	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+	z-index: 60;
+}
+
+.wrapper.active {
+	transform: translateX(0);
+}
+
+li {
+
+	list-style: none;
+	padding: 13px 0;
+	font-size: 24px;
+}

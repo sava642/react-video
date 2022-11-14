@@ -18,6 +18,11 @@ html {
 	box-sizing: border-box;
 }
 
+#page-wrap {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
 *,
 *::before,
 *::after {
@@ -35,16 +40,31 @@ p {
 	margin-bottom: 0;
 }
 
-/* li {
-	list-style: none;
-} */
-
-address {
-	font-style: normal;
-}
 
 img {
 	display: block;
 	max-width: 100%;
-	height: auto;
+	height: 100%;
+}
+
+
+
+.content-custom {
+	min-height: calc(100vh - 50px - 56px);
+}
+
+
+#navbarSupportedContent {
+	height: 50px;
+	display: block;
+}
+
+#navbarSupportedContent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#navbarSupport {
+	display: block;
 }
