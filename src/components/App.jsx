@@ -38,7 +38,7 @@ export default function App() {
     <>
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<SharedLayout />}>
+        <Route path="/react-video/" element={<SharedLayout />}>
           <Route index element={<Home trends={trends} />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/about" element={<AboutUs />} />
